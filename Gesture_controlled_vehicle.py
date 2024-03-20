@@ -22,6 +22,7 @@ while True:
         handType2=hand2["type"]
         dl=f'{round(lmList1[8][1]):03d}'
         dl2=f'{round(lmList2[8][1]):03d}'
+        # protection against change track control
         if(handType1=="Left"):
             dl3=dl+dl2
             leftbar=lmList2[8][1]
@@ -30,8 +31,8 @@ while True:
             dl3=dl2+dl
             leftbar=lmList1[8][1]
             rightbar=lmList2[8][1]
-        arduino.sendData(dl3)
-
+        arduino.sendData(dl3) 
+        # filling the bars according to the speed change
         if leftbar > 150:
             if leftbar < 250:
                 cv2.rectangle(img, (23, leftbar), (32, 250), (255, 0, 0), cv2.FILLED)
@@ -53,12 +54,14 @@ while True:
                 cv2.rectangle(img, (613, 250), (622, rightbar-50), (0, 0, 255), cv2.FILLED)
         else:
             cv2.rectangle(img, (613, 250), (622, 350), (0, 0, 255), cv2.FILLED)
-        print(dl3)
+        #print(dl3)
+    # stop when two hands are not detected
     if len(hands) ==1:
         arduino.sendData(brak)
 
     if len(hands) ==0:
         arduino.sendData(brak)
+    # create elements of interface
     cv2.rectangle(img, (20, 249), (35, 251), (255, 255, 255), cv2.FILLED)
     cv2.rectangle(img, (610, 249), (625, 251), (255, 255, 255), cv2.FILLED)
     cv2.rectangle(img, (20, 199), (35, 201), (155, 155, 155), cv2.FILLED)
