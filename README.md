@@ -55,3 +55,11 @@ def __init__(self, mode=False, maxHands=1, modelComplexity=1, detectionCon=0.5, 
 9) Battery basket 6x1,5V (AA batteries)
 10) Bunch of cables
 11) Tape or glue for assembly
+
+### Watch the project in action [here](https://youtu.be/2UdCnZrh9oA)
+
+### Vehicle 
+![IMG](https://github.com/Xirokik/Gesture-controlled-vehicle/blob/main/Project's%20files/Vehicle.jpg)
+
+### Test stand
+![IMG](https://github.com/Xirokik/Gesture-controlled-vehicle/blob/main/Project's%20files/Test_stand.jpg)
